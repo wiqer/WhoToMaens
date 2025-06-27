@@ -1,0 +1,129 @@
+=== 代码分析报告 ===
+
+RED 级别问题:
+
+文件: bugagaric/evaluate\eval.py
+行号: 0
+问题: 异步操作缺少同步保护
+
+文件: bugagaric/evaluate\eval.py
+行号: 63
+问题: 文件操作缺少安全检查
+代码: open(config_path, 'r', encoding='utf-8')
+
+文件: bugagaric/evaluate\eval.py
+行号: 94
+问题: 文件操作缺少安全检查
+代码: open(file_path, 'r', encoding='utf-8')
+
+文件: bugagaric/evaluate\eval.py
+行号: 158
+问题: 文件操作缺少安全检查
+代码: open(output_file_path, 'w', encoding='utf-8')
+
+文件: bugagaric/evaluate\eval.py
+行号: 242
+问题: 文件操作缺少安全检查
+代码: open(args.log_path, 'w')
+
+文件: bugagaric/evaluate\index.py
+行号: 0
+问题: 缺少错误处理
+
+文件: bugagaric/evaluate\utils.py
+行号: 0
+问题: 缺少错误处理
+
+文件: bugagaric/evaluate\utils.py
+行号: 17
+问题: 文件操作缺少安全检查
+代码: open(qrels_file)
+
+文件: bugagaric/evaluate\utils.py
+行号: 52
+问题: 文件操作缺少安全检查
+代码: open(output_path, 'w')
+
+文件: bugagaric/evaluate\__init__.py
+行号: 0
+问题: 缺少错误处理
+
+文件: bugagaric/evaluate\evaluator\generated_evaluator.py
+行号: 66
+问题: LLM模型加载没有内存限制
+代码: LLM(model=completeness_model, tokenizer_mode='auto', dtype=torch.bfloat16, gpu_memory_utilization=0.9, enforce_eager=True, tensor_parallel_size=4)
+
+文件: bugagaric/evaluate\evaluator\generated_evaluator.py
+行号: 248
+问题: 文件操作缺少安全检查
+代码: open(self.output_path, 'w', encoding='utf-8')
+
+文件: bugagaric/evaluate\evaluator\generated_evaluator.py
+行号: 249
+问题: 文件操作缺少安全检查
+代码: open(self.input_path, 'r', encoding='utf-8')
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 0
+问题: 固定批量大小没有考虑内存限制
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 0
+问题: 异步操作缺少同步保护
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 57
+问题: 文件操作缺少安全检查
+代码: open(self.files_path['corpus'], 'r')
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 89
+问题: 文件操作缺少安全检查
+代码: open(self.files_path['queries'], 'r')
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 331
+问题: 文件操作缺少安全检查
+代码: open(args.log_path, 'w')
+
+YELLOW 级别问题:
+
+文件: bugagaric/evaluate\eval.py
+行号: 0
+问题: 类缺少基类或接口
+
+文件: bugagaric/evaluate\index.py
+行号: 0
+问题: 缺少文档字符串
+
+文件: bugagaric/evaluate\keypoint_metrics.py
+行号: 0
+问题: 类缺少基类或接口
+
+文件: bugagaric/evaluate\utils.py
+行号: 0
+问题: 类缺少基类或接口
+
+文件: bugagaric/evaluate\__init__.py
+行号: 0
+问题: 类缺少基类或接口
+
+文件: bugagaric/evaluate\__init__.py
+行号: 0
+问题: 缺少文档字符串
+
+文件: bugagaric/evaluate\evaluator\generated_evaluator.py
+行号: 0
+问题: 类缺少基类或接口
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 101
+问题: 循环中存在重复排序
+代码: sorted(self.run[qid].items(), key=lambda item: item[1], reverse=True)
+
+文件: bugagaric/evaluate\evaluator\retrieval_evaluator.py
+行号: 149
+问题: 循环中存在重复排序
+代码: sorted(self.qrels[qid].values(), reverse=True)
+
+BLUE 级别问题:
